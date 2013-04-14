@@ -1,3 +1,4 @@
+# F#
 [Bb]in/
 [Oo]bj/
 MonoDevelop.FSharpBinding/Gui/[Oo]bj/Debug/*
@@ -7,12 +8,24 @@ MonoDevelop.FSharpBinding/Gui/[Bb]in/*
 MonoDevelop.FSharpBinding/_ReSharper.MonoDevelop.FSharp/*
 MonoDevelop.FSharpBinding/[Oo]bj/
 MonoDevelop.FSharpBinding/[Bb]in/
+monodevelop/pack/*
 repository/*
 *.suo
 *.pidb
 *.userprefs
 *.user
-Makefile
+/Makefile
 *.dll
 *.pdb
 *.cache
+*~
+pack/*
+lib/NUnit.*
+lib/FsUnit.*
+
+# Emacs
+*.elc
+emacs/deps
+emacs/tmp
+
+.DS_Store
