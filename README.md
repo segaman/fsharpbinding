@@ -2,11 +2,10 @@
 
 This project contains advanced editing support for F# for a number of open editors
 * [MonoDevelop](#monodevelop-support)
-* [Emacs (in progress)](emacs/README.md)
+* [Emacs](emacs/README.md)
 * Vim (in progress)
 
 For more information about F# see [The F# Software Foundation](http://fsharp.org). Join [The F# Open Source Group](http://fsharp.github.com). We use [github](https://github.com/fsharp/fsharpbinding) for tracking work items and suggestions.
-
 
 ## Basic Components
 
@@ -66,6 +65,8 @@ Normally you should get the binding from the repository. If you want to build an
 
 Don't give up! Add an issue to [the issue tracker](https://github.com/fsharp/fsharpbinding/issues). You issue will be seen by the developers.
 
+Users of Windows XP wishing to use this project are advised to read the instruction in this [fork](https://github.com/satyagraha/fsharpbinding/tree/windows-xp)
+
 ### Notes for Developers
 
 To check things are working try a few different things somewhat at random:
@@ -86,11 +87,14 @@ On windows, use the file MonoDevelop.FSharpBinding\MonoDevelop.FSharp.windows.fs
 
 On Mac/Linux, please develop using  the 'Makefile' with Mono 3.0 and FSharp 3.0. There is an old Makefile for the days before xbuild works, but this is not used to prepare distributions.
 
-On Mac/Linux, if you make changes to the binding, then loss of completion lists etc. can be disturbing and hard to debug. There are some debugging techniques. To launch MD you can use
-
-   /Applications/MonoDevelop.app/Contents/MacOS/MonoDevelop --new-window --no-redirect
-   "/Applications/Xamarin Studio.app/Contents/MacOS/XamarinStudio" --new-window --no-redirect
-
+On Mac/Linux, if you make changes to the binding, then loss of completion lists etc. can be disturbing and hard to debug. There are some debugging techniques. To launch MonoDevelop you can use the command:  
+```
+/Applications/MonoDevelop.app/Contents/MacOS/MonoDevelop --new-window --no-redirect
+```
+or this command for Xamarin Studio:  
+```
+"/Applications/Xamarin Studio.app/Contents/MacOS/XamarinStudio" --new-window --no-redirect
+```
 to enable some logging you can use
 
   export FSHARPBINDING_LOGGING=*
@@ -103,7 +107,12 @@ You can start Xamarin Studio or MonoDevelop under the debugger using the normal 
 
 ## Notes for People Preparing Releases
 
-The addin gets released to http://addins.monodevelop.com under project 'FSharp' (project index 48). Contact @7sharp9, @sega, @tpetricek or @funnelweb to make an update.
+The MonoDevelop Addin mechanism can be hard to easily find information for so here are a couple of links to help get a better understanding.  
+
+  - The addin.xml installation schema description can be found [here](http://addins.monodevelop.com/Source/AddinProjectHelp?projectId=1)
+  - Details about publishing an addin can be found [here](http://monodevelop.com/Developers/Articles/Publishing_an_Addin)
+
+The addin gets released to http://addins.monodevelop.com under project 'FSharp' (project index 48). Contact @7sharp9, @tpetricek or @funnelweb to make an update.
 
 To build the .mpack files to upload to this site, use:
 
@@ -121,5 +130,4 @@ change a bit and are not binary compatible. We try to keep up with
 
 When developing generally use (c)
 
-The build is performed against the MonoDevelop binaries we depend on in dependencies/..., which have been 
-snarfed from MonoDevelop installs.
+The build is performed against the MonoDevelop binaries we depend on in dependencies/... which have been copied from MonoDevelop installs.

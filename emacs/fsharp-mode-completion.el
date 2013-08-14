@@ -42,7 +42,7 @@
                  (concat (file-name-directory (or load-file-name buffer-file-name))
                          "bin/" fsharp-ac-executable))))
     (case system-type
-      (windows-nt exe)
+      (windows-nt (list exe))
       (otherwise (list "mono" exe)))))
 
 (defvar fsharp-ac-use-popup t
@@ -127,7 +127,6 @@ display in a help buffer instead.")
       (fsharp-ac/start-process))
     ;; Load given project.
     (when (fsharp-ac--process-live-p)
-      (log-psendstr fsharp-ac-completion-process "outputmode json\n")
       (log-psendstr fsharp-ac-completion-process
                     (format "project \"%s\"\n" (expand-file-name file))))
     file))
@@ -214,6 +213,7 @@ display in a help buffer instead.")
           (with-current-buffer (process-buffer proc)
             (delete-region (point-min) (point-max)))
           (add-to-list 'ac-modes 'fsharp-mode)
+          (log-psendstr proc "outputmode json\n")
           proc)
       (fsharp-ac-message-safely "Failed to launch: '%s'"
                                 (s-join " " fsharp-ac-complete-command))
